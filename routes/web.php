@@ -18,4 +18,11 @@ use App\Http\Controllers\PostController;
 //     return view('welcome');
 // });
 
-Route::get('/posts', [PostController::class, 'index']);
+Route::get('/', [PostController::class, 'index']);
+
+// {post}の部分がコントローラークラスshowの引数として渡される
+Route::get('/posts/?{post}', [PostController::class, 'show']);
+
+Route::get('/posts/create', [PostController::class, 'add']);
+
+Route::post('/posts/create', [PostController::class, 'create']);
