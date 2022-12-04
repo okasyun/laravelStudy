@@ -7,20 +7,12 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
     <body>
-        <h1>ブログ一覧</h1>
+        <h1>Blog Name</h1>
         <div class='posts'>
-            @foreach ($posts as $post)
-                <div class='post'>
-                    <h2 class='title'><a href="/posts/{{$post->id}}">{{$post->title}}</a></h2>
-                </div>
-            @endforeach
-        
+            {{$data}}
         <div>
             <a href='/posts/create'>ブログ作成ページ</a>
         </div>
-        </div>
-        <div class='paginate'>
-            {{ $posts->links() }}
         </div>
     </body>
 </html>

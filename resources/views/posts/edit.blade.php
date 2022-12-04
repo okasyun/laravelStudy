@@ -19,8 +19,12 @@
             </div>
         @endif
      
-    	<form action="/posts" method="POST">
+    	<form action="/posts/{{$post->id}}" method="POST">
     	    @csrf
+    	    <!--
+    	    PUTでhttpリクエストを送る
+    	    -->
+    	    @method('PUT')
     		<table>
     			<tr><th>タイトル</th><td><input type="text" name="post[title]" value="{{$post->title}}"></td></tr>
     			<tr><th>本文</th><td><textarea type="text" name="post[body]" value="">{{$post->body}}</textarea></td></tr>

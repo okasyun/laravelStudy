@@ -55,8 +55,24 @@ class PostController extends Controller
     
     public function edit(Request $request, Post $post)
     {
-        $post = Post::find($request->id);
+        // Post::find($request->id);
         return view('posts/edit')->with(['post' => $post]);
+    }
+    
+    public function update(PostRequest $request, Post $post)
+    {
+        // 引数の＄postインスタンスで指定のidのデータを取得している
+        // $post = Post::find($request->id);
+        $input_post = $request['post'];
+        unset($input_post['_token']);
+        $post->fill($input_post)->save();
+        
+        return redirect('/posts/' . $post->id);
+    }
+    
+    public function test(Request $request, $data)
+    {
+        return view('posts/test', ['okamoto' => $data]);
     }
 
 }
