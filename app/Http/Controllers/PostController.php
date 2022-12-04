@@ -52,5 +52,11 @@ class PostController extends Controller
         // idはデータベース上で自動で割り振られる
         return redirect('/posts/' . $post->id);
     }
+    
+    public function edit(Request $request, Post $post)
+    {
+        $post = Post::find($request->id);
+        return view('posts/edit')->with(['post' => $post]);
+    }
 
 }

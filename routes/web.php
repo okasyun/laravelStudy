@@ -25,10 +25,14 @@ Route::get('/', [PostController::class, 'index']);
 Route::get('/posts/create', [PostController::class, 'create']);
 
 
+Route::get('/posts/{id}/edit', [PostController::class, 'edit']);
+
+
 Route::post('/posts', [PostController::class, 'store']);
 
 
 // {post}の部分がコントローラークラスshowの引数として渡される
-Route::get('/posts/{post?}', [PostController::class, 'show']);
+Route::get('/posts/{post}', [PostController::class, 'show']);
+
 
 
