@@ -9,10 +9,11 @@
     <body>
         <h1>ブログ作成ページ</h1>
         <div class="contact-form">
-	<form method="" action="">
+	<form action="/posts" method="POST">
+	    @csrf
 		<table>
-			<tr><th>タイトル</th><td><input type="text" name="name"></td></tr>
-			<tr><th>本文</th><td><textarea type="text" name="content"></textarea></td></tr>
+			<tr><th>タイトル</th><td><input type="text" name="title"></td></tr>
+			<tr><th>本文</th><td><textarea type="text" name="body"></textarea></td></tr>
 		</table>
 		<input type="submit" value="送信">
 	</form>

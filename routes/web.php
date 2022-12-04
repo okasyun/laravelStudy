@@ -20,9 +20,15 @@ use App\Http\Controllers\PostController;
 
 Route::get('/', [PostController::class, 'index']);
 
+// Route::get('/posts/{post}', [PostController::class, 'show']);の上に書くように気をつける
+// {post}にcreateが入りshowが実行されてしまうため
+Route::get('/posts/create', [PostController::class, 'create']);
+
+
+Route::post('/posts', [PostController::class, 'store']);
+
+
 // {post}の部分がコントローラークラスshowの引数として渡される
-Route::get('/posts/?{post}', [PostController::class, 'show']);
+Route::get('/posts/{post}', [PostController::class, 'show']);
 
-Route::get('/posts/create', [PostController::class, 'add']);
 
-Route::post('/posts/create', [PostController::class, 'create']);

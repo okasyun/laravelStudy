@@ -15,6 +15,10 @@
                     <p class='body'>{{ $post->body }}</p>
                 </div>
             @endforeach
+        
+        <div>
+            <a href='/posts/create'>ブログ作成ページ</a>
+        </div>
         </div>
         <div class='paginate'>
             {{ $posts->links() }}

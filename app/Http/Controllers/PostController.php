@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 //この場合、App\Models内のPostクラスをインポートしている。
 use App\Models\Post;
 
-
+use Illuminate\Support\Facades\Log;
 
 class PostController extends Controller
 {
@@ -26,25 +26,30 @@ class PostController extends Controller
     public function show(Post $post)
     {
         return view('posts/show')->with(['post' => $post]);
-         //'post'はbladeファイルで使う変数。中身は$postはid=1のPostインスタンス
-        //  何でid指定のPostインスタンスを取得できるのか
-        /**
-         * { }内の文字とこれから実行する関数で定義しているインスタンス名を一致させることによって、
-         * Laravelが自動的に、指定されたidのデータを取得してきてくれます。
-         * 今回の場合だと、「 /posts/1 」というパスが指定されるとtestインスタンスに紐付いているテーブルから、
-         * id=1のデータを自動的に取得してきてくれるという訳です。
-         * この処理をDI（依存性の注入）と呼びます。
-         */
     }
     
-    public function add()
+    public function create()
     {
         return view('posts/create');
     }
     
-    public function create(Request $request) 
+    // なぜPost $postを引数にするのか
+    // public function store(Request $request) 
+    public function store(Request $request, Post $post)
     {
+        // idはどこで作られるのか、自動で作られるのか
         
+        // $post = new Post();
+        // $post->title = $request->title;
+        // $post->body = $request->body;
+        // $post->save();
+        
+        // $input = $request['post'];
+        // $post->fill($input)->save();
+        
+        
+        
+        return redirect('/posts/' . $post->id);
     }
 
 }
