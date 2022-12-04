@@ -22,5 +22,14 @@
         <div>
             <a href="/posts/{{$post->id}}/edit">編集</a>
         </div>
+        
+        
+        {{--<div>
+            <form action="/posts/{{$post->id}}" method="post">
+                @csrf
+                @method('DELETE')
+                <input type="submit" value="削除">
+            </form>
+        </div>--}}
     </body>
 </html>

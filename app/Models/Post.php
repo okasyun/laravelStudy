@@ -5,9 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+// 追記
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 class Post extends Model
 {
     use HasFactory;
+    use SoftDeletes;
     
     /**
      * 複数代入可能な属性
