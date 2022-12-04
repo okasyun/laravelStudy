@@ -9,6 +9,9 @@ use App\Models\Post;
 
 use Illuminate\Support\Facades\Log;
 
+// 追記
+use App\Http\Requests\PostRequest;
+
 class PostController extends Controller
 {
     /**
@@ -35,20 +38,18 @@ class PostController extends Controller
     
     // なぜPost $postを引数にするのか
     // public function store(Request $request) 
-    public function store(Request $request, Post $post)
+    public function store(PostRequest $request, Post $post)
     {
-        // idはどこで作られるのか、自動で作られるのか
         
         // $post = new Post();
         // $post->title = $request->title;
         // $post->body = $request->body;
         // $post->save();
         
-        // $input = $request['post'];
-        // $post->fill($input)->save();
+        $input = $request['post'];
+        $post->fill($input)->save();
         
-        
-        
+        // idはデータベース上で自動で割り振られる
         return redirect('/posts/' . $post->id);
     }
 

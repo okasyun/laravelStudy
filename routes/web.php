@@ -29,6 +29,6 @@ Route::post('/posts', [PostController::class, 'store']);
 
 
 // {post}の部分がコントローラークラスshowの引数として渡される
-Route::get('/posts/{post}', [PostController::class, 'show']);
+Route::get('/posts/{post?}', [PostController::class, 'show']);
 
 

@@ -9,6 +9,19 @@ class Post extends Model
 {
     use HasFactory;
     
+    /**
+     * 複数代入可能な属性
+     *
+     * /fillが実行可能なプロパティを用意しておく
+     * @var array
+     */
+     
+    /**
+     * $guardedは複数代入不可能な属性
+     * 
+     */
+     
+    // titleとbodyだけfillする
     protected $fillable =
     [
     'title',
