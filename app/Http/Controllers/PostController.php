@@ -70,9 +70,17 @@ class PostController extends Controller
         return redirect('/posts/' . $post->id);
     }
     
+    public function delete(Request $request, Post $post )
+    {
+        $post->delete();
+        
+        return redirect('/');
+    }
+    
     public function test(Request $request, $data)
     {
         return view('posts/test', ['okamoto' => $data]);
     }
+    
 
 }
