@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Log;
 // 追記
 use App\Http\Requests\PostRequest;
 
+use App\Models\Category;
+
 class PostController extends Controller
 {
     /**
@@ -22,6 +24,8 @@ class PostController extends Controller
      */
     public function index(Post $post)//インポートしたPostをインスタンス化して$postとして使用。
     {
+        dd('Hello world'); 
+        dd($post->get());
         return view('posts/index')->with(['posts' => $post->getPaginateByLimit()]);//$postの中身を戻り値にする。
         //blade内で使う変数'posts'と設定。'posts'の中身にgetを使い、インスタンス化した$postを代入。
     }
@@ -31,9 +35,11 @@ class PostController extends Controller
         return view('posts/show')->with(['post' => $post]);
     }
     
-    public function create()
+    public function create(Category $category)
     {
-        return view('posts/create');
+        
+        // Post::with('categories')
+        return view('posts/create')->with(['categories' =>$category->get()]);
     }
     
     // なぜPost $postを引数にするのか
@@ -72,6 +78,7 @@ class PostController extends Controller
     
     public function delete(Request $request, Post $post )
     {
+        
         $post->delete();
         
         return redirect('/');
@@ -81,6 +88,7 @@ class PostController extends Controller
     {
         return view('posts/test', ['okamoto' => $data]);
     }
+    
     
 
 }

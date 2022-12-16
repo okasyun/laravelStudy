@@ -26,7 +26,16 @@
     			<tr><th>本文</th><td><textarea type="text" name="post[body]" value="{{old('post.body')}}"></textarea></td></tr>
     		</table>
     		<input type="submit" value="送信">
+    		<div>
+    	    <h2>Category</h2>
+    	    <select name="post[category_id]">
+    	        @foreach($categories as $category)
+    	            <option value={{ $category->id}}>{{$category->name}}</option>
+    	        @endforeach
+    	    </select>
+    	</div>
     	</form>
+    	
     	
     	<div>
     	    <a href="/">戻る</a>
