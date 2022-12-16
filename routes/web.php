@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\CategoryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,6 +40,9 @@ Route::post('/posts', [PostController::class, 'store']);
 
 // {post}の部分がコントローラークラスshowの引数として渡される
 Route::get('/posts/{post}', [PostController::class, 'show']);
+
+
+Route::get('/categories/{category}', [CategoryController::class,'index']);
 
 
 
