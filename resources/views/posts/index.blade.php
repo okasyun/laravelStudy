@@ -23,14 +23,25 @@
                 </div>
             @endforeach
         
+        </div>
         <div>
             <a href='/posts/create'>ブログ作成ページ</a>
-        </div>
         </div>
         <div class='paginate'>
             {{ $posts->links() }}
         </div>
+        
         <div>
+            
+            @foreach($questions as $question)
+                <div>
+                    <a href="https://teratail.com/questions/{{ $question['id'] }}">
+                        {{ $question['title'] }}
+                    </a>
+                </div>
+            @endforeach
+        </div>
+        <div class="user">
             <p>認証ユーザ</p>
             <p>{{Auth::user()->name}}</p>
         </div>
